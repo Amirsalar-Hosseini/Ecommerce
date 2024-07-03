@@ -34,6 +34,7 @@ class UserRegisterView(View):
 
 class UserVerifyCodeView(View):
     form_class = VerifyCodeForm
+    
     def get(self, request):
         form = self.form_class
         return render(request, 'accounts/verify.html', {"form": form})
