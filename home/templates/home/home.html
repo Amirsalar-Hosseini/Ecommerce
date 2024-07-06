@@ -5,5 +5,13 @@
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
 {% endblock %}
 {% block content %}
-    <h3>hello world</h3>
+    {% for product in products %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Visit this product</a>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

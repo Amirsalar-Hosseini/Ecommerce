@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -122,9 +123,24 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
+#Media Files
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+#ARVAN CLOUD STORAGES
+#
+# DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+# AWS_ACCESS_KEY_ID = '2c0c8c84-9c81-4b48-b29f-9f3bc0ab011a'
+# AWS_SECRET_ACCESS_KEY = 'cf947537663a9c35d12948a0910682b834f074d18798eaac1026509d6bcc4a36'
+# AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.ir'
+# AWS_STORAGES_BUCKET_NAME = 'PK-ecommerce'
+# AWS_SERVICE_NAME = 's3'
+# AWS_S3_FILE_OVERRIDE = False
