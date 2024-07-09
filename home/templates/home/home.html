@@ -5,8 +5,19 @@
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
 {% endblock %}
 {% block content %}
+    {% for category in categories %}
+        <div class="btn-group">
+              <a href="{{ category.get_absolute_url }}" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{ category.name }}</a>
+              <ul class="dropdown-menu">
+                  {% for sub in category.scategory.all %}
+                    <li><a class="dropdown-item" href="{{ sub.get_absolute_url }}">{{ sub.name }}</a></li>
+                      {% endfor %}
+              </ul>
+        </div>
+    {% endfor %}
+    <br><br>
     {% for product in products %}
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; display: inline-block;">
             <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
