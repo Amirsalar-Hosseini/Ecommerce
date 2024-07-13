@@ -5,29 +5,30 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Total Price</th>
+      <th scope="col">Remove</th>
     </tr>
   </thead>
   <tbody>
+  {% for item in cart %}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ item.product }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.price }}</td>
+      <td>{{ item.total_price }}</td>
+    <td><a href="{% url 'orders:cart_remove' item.product.id %}" class='btn btn-danger'>remove</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    {% endfor %}
+  <tr>
+      <td>Total</td>
+      <td colspan="3"></td>
+      <td>{{ cart.get_total_price }}</td>
+      <td colspan="1"></td>
+  </tr>
   </tbody>
 </table>
 {% endblock %}
