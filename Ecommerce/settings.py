@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     
     # 'storages',
     'django_celery_beat',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -92,6 +93,16 @@ DATABASES = {
     }
 }
 
+#REDIS CACHE
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+#         'LOCATION': 'redis://127.0.0.1:6379',
+#     }
+# }
+#
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -158,3 +169,9 @@ AUTH_USER_MODEL = 'accounts.User'
 
 # MERCHANT = '98756449-5747-4321-8975-275027562943'
 # SANDBOX = True
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
